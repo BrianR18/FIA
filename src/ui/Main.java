@@ -11,7 +11,7 @@ public class Main{
 		int year = 0;
 		int races = 0;
 		int pilots = 0;
-		System.out.print("Ingrese el anio en el que se celebra el campeonato: ");
+		System.out.print("\nIngrese el anio en el que se celebra el campeonato: ");
 		year = sc.nextInt();
 		System.out.print("Ingrese la cantidad de gran premios que habra este campeonato: ");
 		races = sc.nextInt();
@@ -20,6 +20,7 @@ public class Main{
 		sc.nextLine();
 		champion = new Championship(year,races,pilots);
 		for(int i = 0; i < champion.getAmountPilots();i++){
+			System.out.println("\nRegistrando al piloto #" + (i+1));
 			createPilot();
 		}//End for
 		System.out.print("\n"+champion.showAverageTimes());
@@ -35,10 +36,12 @@ public class Main{
 		System.out.print("\nIngrese la edad del piloto: ");
 		age = sc.nextInt();
 		sc.nextLine();
+		System.out.println("\nMostrando los posibles equipos a los que se puede unir el piloto...");
+		System.out.println("\n"+champion.showTeams());
 		System.out.print("\nIngrese el equipo al que pertenece el piloto: ");
 		team = sc.nextLine();
 		
-		while(!Championship.checkTeam(team)){
+		while(!champion.checkTeam(team)){//!Championship.checkTeam(team)
 			System.out.println("Ese equipo no existe en el campeonato!!");
 			System.out.print("\nIngrese el equipo al que pertenece el piloto: ");
 			team = sc.nextLine();

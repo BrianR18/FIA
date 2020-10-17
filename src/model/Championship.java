@@ -27,7 +27,7 @@ public class Championship{
 		}//End for.
 	}//End addPilot.
 	
-	public static boolean checkTeam(String team){
+	public boolean checkTeam(String team){
 		boolean checked = false;
 		team = team.toUpperCase();
 		Pilot.Team[] tm = Pilot.Team.values();
@@ -72,6 +72,16 @@ public class Championship{
 		}//End for
 		return averageTimes;
 	}//End showAverageTimes.
+	
+	public String showTeams(){
+		String teamsName = new String();
+		Pilot.Team[] tm = Pilot.Team.values();
+		for(Pilot.Team n: tm ){
+			teamsName += "-" + n.toString() + "\n";
+		}//End for
+		teamsName = teamsName.toLowerCase();
+		return teamsName;
+	}//End showTeams
 	
 	//Set and Get methods
 	public void setYear(int year){
